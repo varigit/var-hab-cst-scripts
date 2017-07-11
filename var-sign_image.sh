@@ -31,7 +31,7 @@ attach_csf_data()
 	cp var-default.csf ${1}.csf
 	printf "Blocks = $RAM_AUTH_AREA_START   $IMG_SIGN_AREA_START   $IMG_SIGN_AREA_SIZE   \"${1}\"\n" >> ${1}.csf
 
-	if [ "$IS_SPL" == "true" ]; then
+	if [ "$IS_IMX_BOOT_IMG" == "true" ]; then
 		printf "\n[Unlock]\nEngine = CAAM\nFeatures = RNG\n" >> ${1}.csf
 	fi
 
@@ -49,7 +49,7 @@ fi
 
 while [[ $# -gt 0 ]]; do
 	IMAGE=$1
-	IS_SPL=false
+	IS_IMX_BOOT_IMG=false
 
 	echo
 	echo "Input image: $IMAGE"
@@ -80,7 +80,7 @@ while [[ $# -gt 0 ]]; do
 		done
 
 		if [ `grep 'Image Type:' ${IMAGE}.log | grep -c 'Freescale IMX Boot Image'` -eq 1 ]; then
-			IS_SPL=true
+			IS_IMX_BOOT_IMG=true
 		fi
 
 		attach_csf_data ${IMAGE}
