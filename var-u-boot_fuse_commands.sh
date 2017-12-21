@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -ne 1 ] || [ "$1" != "mx6" -a "$1" != "mx6ul" -a "$1" != "mx7" ]; then
 	echo "Usage: `basename "$0"` SOC"
