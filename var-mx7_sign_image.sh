@@ -3,7 +3,7 @@
 usage()
 {
 	echo "Usage: `basename "$0"` IMGFILE [IMGEFILE]..."
-	echo "Note: for a U-Boot image, make sure its log file is present in the same directory"
+	echo "Note: for U-Boot/SPL images, make sure their log file is present in the same directory"
 	echo
 }
 
