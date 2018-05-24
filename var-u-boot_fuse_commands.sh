@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ $# -ne 1 ] || [ "$1" != "mx6" -a "$1" != "mx6ul" -a "$1" != "mx7" ]; then
+if [ $# -ne 1 ] || [ "$1" != "mx6" -a "$1" != "mx6ul" -a "$1" != "mx6ull" -a "$1" != "mx7" ]; then
 	echo "Usage: `basename "$0"` SOC"
 	echo
-	echo "SOC is one of {mx6, mx6ul, mx7}"
+	echo "SOC is one of {mx6, mx6ul, mx6ull, mx7}"
 	echo
 	exit 1
 fi

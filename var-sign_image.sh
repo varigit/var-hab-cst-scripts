@@ -29,6 +29,11 @@ attach_csf_data()
 {
 	echo "Generate csf data..."
 	cp var-default.csf ${1}.csf
+
+	if [ ! -z ${ENGINE+x} ]; then
+		sed -i "s/^Engine =.*/Engine = $ENGINE/" ${1}.csf
+	fi
+
 	printf "Blocks = $RAM_AUTH_AREA_START   $IMG_SIGN_AREA_START   $IMG_SIGN_AREA_SIZE   \"${1}\"\n" >> ${1}.csf
 
 	if [ "$IS_IMX_BOOT_IMG" == "true" ]; then
